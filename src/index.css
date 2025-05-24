@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+@import "tailwindcss";
 
 @font-face {
     font-family: 'HSBombaram2.1';
@@ -24,3 +24,23 @@
     --font-mainFont: 'HSBombaram2.1', sans-serif;
     --font-gothicFont: 'Noto Sans KR', sans-serif; 
   }
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body,
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
