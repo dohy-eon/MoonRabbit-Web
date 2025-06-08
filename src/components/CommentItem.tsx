@@ -73,7 +73,7 @@ export const CommentItem: React.FC<CommentItemProps> = ({
         </div>
       )}
       {/* 답글 렌더링 */}
-      {comment.replies?.length > 0 && (
+      {comment.replies && comment.replies.length > 0 && (
         <div className="ml-12 mt-2">
           {comment.replies.map((reply) => (
             <CommentItem key={reply.id} comment={reply} depth={depth + 1} />
