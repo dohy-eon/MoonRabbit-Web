@@ -6,7 +6,7 @@ import Header from './components/Header'
 import MainPage from './pages/MainPage'
 import LoginSignupPage from './pages/LoginSignupPage'
 import NightSkyPage from './pages/NightSkyPage'
-import NightSkyDetailPage from './pages/NightSkyDetailPage'
+import { NightSkyDetailPage } from './pages/NightSkyDetailPage'
 import Footer from './components/Footer'
 import LoginLoadingPage from './pages/LoginLoadingPage'
 

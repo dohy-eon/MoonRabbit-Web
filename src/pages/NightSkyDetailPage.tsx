@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useBoardDetailStore } from '../stores/useBoardDetailStore'
-import { ConcernContent } from '../components/ConcernContent'
-import { ConcernAnswer } from '../components/ConcernAnswer'
+import { ConcernContent, ConcernAnswer } from '../components/ConcernPost'
 import { ConcernComment } from '../components/ConcernComment'
 
 interface ConcernContentProps {
@@ -43,8 +42,8 @@ export const NightSkyDetailPage: React.FC = () => {
         content={boardDetail.content}
         date={boardDetail.createdAt}
       />
-      <ConcernAnswer answers={boardDetail.answers} />
-      <ConcernComment boardId={boardDetail.id} />
+      <ConcernAnswer />
+      <ConcernComment />
     </div>
   )
 }

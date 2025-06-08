@@ -15,6 +15,7 @@ interface BoardDetail {
   category: string
   answers: Answer[]
   aiAnswer?: string
+  createdAt: string
 }
 
 interface BoardDetailStore {
