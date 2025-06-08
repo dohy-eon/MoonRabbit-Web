@@ -144,6 +144,7 @@ const ConcernSection: React.FC = () => {
         {displayedConcerns.map((concern) => (
           <ConcernCard
             key={concern.id}
+            id={concern.id}
             profileImage={concern.profileImage}
             title={concern.title}
             category={concern.category}

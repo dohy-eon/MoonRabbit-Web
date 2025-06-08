@@ -12,7 +12,7 @@ export interface Comment {
   likeCount: number
   reportCount: number
   like: boolean // 나중에 삭제
-  replies: Comment[]
+  replies?: Comment[]  // optional로 변경
 }
 
 interface CommentStore {
@@ -38,7 +38,7 @@ function toggleLikeRecursive(comments: Comment[], id: number): Comment[] {
     if (comment.id === id) {
       return { ...comment, like: !comment.like }
     }
-    const updatedReplies = toggleLikeRecursive(comment.replies, id)
+    const updatedReplies = toggleLikeRecursive(comment.replies ?? [], id)
     return { ...comment, replies: updatedReplies }
   })
 }

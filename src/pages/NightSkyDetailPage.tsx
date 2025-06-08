@@ -44,15 +44,10 @@ const NightSkyDetailPage: React.FC = () => {
       <ConcernContent
         title={boardDetail.title}
         content={boardDetail.content}
-        category={boardDetail.category}
-        date={
-          new Date(boardDetail.answers[0]?.createdAt || new Date())
-            .toISOString()
-            .split('T')[0]
-        }
+        date={boardDetail.createdAt}
       />
       <ConcernAnswer answers={boardDetail.answers} />
-      <ConcernComment />
+      <ConcernComment boardId={boardDetail.id} />
     </div>
   )
 }
