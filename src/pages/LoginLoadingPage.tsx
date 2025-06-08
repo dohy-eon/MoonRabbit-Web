@@ -15,15 +15,14 @@ const LoginLoadingPage: React.FC = () => {
     } else {
       console.error('토큰 없음')
     }
-  }, [])
+  }, [navigate])
 
-  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <p>로그인 중...</p>
-      <p className='mt-4'>곧 메인페이지로 이동됩니다.</p>
+      <p className="mt-4">곧 메인페이지로 이동됩니다.</p>
     </div>
-  );
-};
+  )
+}
 
 export default LoginLoadingPage
