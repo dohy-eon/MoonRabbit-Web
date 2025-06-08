@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CategoryBar from './CategoryBar';
 import { useResponsiveStore } from '../stores/useResponsiveStore';
@@ -23,6 +24,15 @@ interface CreateConcernModalProps {
   content: string;
 }
 
+const categoryMap: Record<string, string> = {
+  '가족': 'FAMILY',
+  '연애': 'LOVE',
+  '진로': 'CAREER',
+  '정신건강': 'MENTAL',
+  '사회생활': 'SOCIETY',
+  '대인관계': 'PERSONAL',
+}
+
 const CreateConcernModal: React.FC<CreateConcernModalProps> = ({
   isOpen,
   onClose,
@@ -38,6 +48,7 @@ const CreateConcernModal: React.FC<CreateConcernModalProps> = ({
   const { anonymous, toggleAnonymous, setAnonymous } = useAnonymousStore();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate()
 
   if (!isOpen) return null;
 
@@ -77,9 +88,20 @@ const CreateConcernModal: React.FC<CreateConcernModalProps> = ({
       }
     );
 
+    const category = categoryMap[selectedCategory]
+    const boardId = response.data.boardId
+    const assistantRes = await axios.post(
+      `http://moonrabbit-api.kro.kr/api/board/${boardId}/assistant/${category}`,
+      {
+        message: content
+      }
+    )
+
+    console.log('AI답변:', assistantRes.data)
     console.log('게시글 생성 성공:', response.data);
-    onCreateConcern();
+    onCreateConcern(); 
     handleClose();
+    navigate('/night-sky/'+response.data.boardId)
   } catch (err) {
     setError('게시글 생성 중 오류가 발생했습니다. 다시 시도해주세요.');
     console.error(err);
