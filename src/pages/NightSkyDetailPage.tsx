@@ -1,13 +1,30 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { ConcernContent, ConcernAnswer } from '../components/ConcernPost'
-import { ConcernComment } from '../components/ConcernComment'
 import { useBoardDetailStore } from '../stores/useBoardDetailStore'
+import { ConcernContent } from '../components/ConcernContent'
+import { ConcernAnswer } from '../components/ConcernAnswer'
+import { ConcernComment } from '../components/ConcernComment'
 
-const NightSkyDetailPage: React.FC = () => {
+interface ConcernContentProps {
+  title: string
+  content: string
+  date: string
+}
+
+interface ConcernAnswerProps {
+  answers: Array<{
+    id: number
+    content: string
+    createdAt: string
+    userId: number
+    nickname: string
+    profileImg: string
+  }>
+}
+
+export const NightSkyDetailPage: React.FC = () => {
   const { pageNumber } = useParams<{ pageNumber: string }>()
-  const { boardDetail, isLoading, error, fetchBoardDetail } =
-    useBoardDetailStore()
+  const { boardDetail, fetchBoardDetail } = useBoardDetailStore()
 
   useEffect(() => {
     if (pageNumber) {
@@ -15,32 +32,12 @@ const NightSkyDetailPage: React.FC = () => {
     }
   }, [pageNumber, fetchBoardDetail])
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl text-gray-600">로딩 중...</div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl text-red-600">{error}</div>
-      </div>
-    )
-  }
-
   if (!boardDetail) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl text-gray-600">게시글을 찾을 수 없습니다.</div>
-      </div>
-    )
+    return <div>로딩 중...</div>
   }
 
   return (
-    <div className="flex flex-col items-center justify-center w-full">
+    <div className="flex flex-col items-center">
       <ConcernContent
         title={boardDetail.title}
         content={boardDetail.content}
@@ -51,5 +48,3 @@ const NightSkyDetailPage: React.FC = () => {
     </div>
   )
 }
-
-export default NightSkyDetailPage

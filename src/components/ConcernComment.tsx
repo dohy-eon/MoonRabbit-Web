@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useCommentStore } from '../stores/useCommentStore'
+import { useCommentStore, Comment } from '../stores/useCommentStore'
 import { CommentInput } from './CommentInput'
 import { CommentItem } from './CommentItem'
-import Comment from '../assets/images/Comment.svg'
+import CommentIcon from '../assets/images/Comment.svg'
 
 export const ConcernComment: React.FC = () => {
   const { pageNumber } = useParams<{ pageNumber: string }>()
@@ -35,7 +35,7 @@ export const ConcernComment: React.FC = () => {
     <div className="text-darkWalnut font-mainFont bg-mainWhite h-auto w-4/5 rounded-[40px] my-[50px] p-[50px] shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
       <div className="flex items-center mb-[20px]">
         <p className="text-[30px] mr-[16px]">댓글</p>
-        <img src={Comment} alt="댓글아이콘" />
+        <img src={CommentIcon} alt="댓글아이콘" />
         <p className="mt-[2px] ml-[4px] text-[20px]">{totalCommentCount}</p>
       </div>
       <CommentInput />
