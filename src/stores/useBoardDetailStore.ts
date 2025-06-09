@@ -35,7 +35,7 @@ export const useBoardDetailStore = create<BoardDetailStore>((set) => ({
     set({ isLoading: true, error: null })
     try {
       const response = await axios.get(
-        `http://moonrabbit-api.kro.kr/api/boards/list/${id}`,
+        `https://moonrabbit-api.kro.kr/api/boards/list/${id}`,
       )
       set({
         boardDetail: response.data,
@@ -53,7 +53,7 @@ export const useBoardDetailStore = create<BoardDetailStore>((set) => ({
   fetchAiAnswer: async (boardId: number, category: string) => {
     try {
       const response = await axios.get(
-        `http://moonrabbit-api.kro.kr/api/board/${boardId}/assistant`,
+        `https://moonrabbit-api.kro.kr/api/board/${boardId}/assistant`,
       )
       set((state) => ({
         boardDetail: state.boardDetail

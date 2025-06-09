@@ -62,7 +62,7 @@ export const CommentInput: React.FC<CommentInputProps> = ({
         : { content, parentId }
 
       console.log('요청 데이터:', {
-        url: `http://moonrabbit-api.kro.kr/api/answer/save?boardId=${boardId}`,
+        url: `https://moonrabbit-api.kro.kr/api/answer/save?boardId=${boardId}`,
         ...requestBody,
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ export const CommentInput: React.FC<CommentInputProps> = ({
       })
 
       const response = await axios.post(
-        `http://moonrabbit-api.kro.kr/api/answer/save?boardId=${boardId}`,
+        `https://moonrabbit-api.kro.kr/api/answer/save?boardId=${boardId}`,
         requestBody,
         {
           headers: {

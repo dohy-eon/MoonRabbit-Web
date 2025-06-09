@@ -45,7 +45,7 @@ export const LoginForm = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        'http://moonrabbit-api.kro.kr/api/users/login',
+        'https://moonrabbit-api.kro.kr/api/users/login',
         {
           email,
           password,
@@ -67,7 +67,7 @@ export const LoginForm = () => {
 
   const handleSNSLogin = (platform: string) => async () => {
     try {
-      window.location.href = `http://moonrabbit-api.kro.kr/api/users/${platform}`
+      window.location.href = `https://moonrabbit-api.kro.kr/api/users/${platform}`
     } catch (error) {
       console.error('소셜 로그인 오류:', error)
       alert('소셜 로그인에 실패했습니다.')
@@ -154,7 +154,7 @@ export const SignupForm = () => {
 
     try {
       const response = await axios.post(
-        'http://moonrabbit-api.kro.kr/api/users/register',
+        'https://moonrabbit-api.kro.kr/api/users/register',
         {
           email,
           password,
@@ -174,7 +174,7 @@ export const SignupForm = () => {
   const handleVerification = async () => {
     try {
       const response = await axios.post(
-        'http://moonrabbit-api.kro.kr/api/sms/send',
+        'https://moonrabbit-api.kro.kr/api/sms/send',
         {
           phoneNum,
         },

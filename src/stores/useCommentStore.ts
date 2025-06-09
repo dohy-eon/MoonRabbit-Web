@@ -154,7 +154,7 @@ export const useCommentStore = create<CommentStore>((set, get) => ({
 
     try {
       await axios.delete(
-        `http://moonrabbit-api.kro.kr/api/answer/delete/${commentId}`,
+        `https://moonrabbit-api.kro.kr/api/answer/delete/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

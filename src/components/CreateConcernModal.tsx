@@ -72,7 +72,7 @@ const CreateConcernModal: React.FC<CreateConcernModalProps> = ({
       const token = localStorage.getItem('accessToken') // 또는 sessionStorage.getItem('accessToken');
 
       const response = await axios.post(
-        `http://moonrabbit-api.kro.kr/api/boards/save`,
+        `https://moonrabbit-api.kro.kr/api/boards/save`,
         {
           title,
           content,
@@ -91,7 +91,7 @@ const CreateConcernModal: React.FC<CreateConcernModalProps> = ({
       const category = categoryMap[selectedCategory]
       const boardId = response.data.boardId
       const assistantRes = await axios.post(
-        `http://moonrabbit-api.kro.kr/api/board/${boardId}/assistant/${category}`,
+        `https://moonrabbit-api.kro.kr/api/board/${boardId}/assistant/${category}`,
         {
           message: content,
         },

@@ -15,7 +15,7 @@ export const ConcernComment: React.FC = () => {
     const getComments = async () => {
       try {
         const response = await axios.get(
-          `http://moonrabbit-api.kro.kr/api/answer/board/${boardId}`,
+          `https://moonrabbit-api.kro.kr/api/answer/board/${boardId}`,
         )
         const answers = await response.data
         console.log(answers)

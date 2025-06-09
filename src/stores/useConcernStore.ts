@@ -114,7 +114,7 @@ export const useConcernStore = create<ConcernStore>((set, get) => ({
   fetchConcerns: async () => {
     try {
       const response = await axios.get(
-        'http://moonrabbit-api.kro.kr/api/boards/list',
+        'https://moonrabbit-api.kro.kr/api/boards/list',
       )
       const boards: Board[] = response.data.content
       const concerns = boards.map(transformBoardToConcern)
