@@ -10,7 +10,7 @@ interface CategoryBarProps {
 const categories = [
   '전체',
   '가족',
-  '연인',
+  '연애',
   '진로',
   '정신건강',
   '사회생활',

@@ -48,7 +48,7 @@ const ConcernSection: React.FC = () => {
       id: 4,
       profileImage: 'images/MoonRabbitLogo.png',
       title: '연인과의 관계가 불안해요',
-      category: '연인',
+      category: '연애',
       content: '서로의 미래가 불확실해서 걱정이에요. 어떻게 해야 할까요?',
       recentComment: {
         author: '달토끼',
